@@ -23,8 +23,6 @@ A clean and simple web-based application to track daily expenses and manage pers
 
 ---
 
----
-
 ## 🎯 Why this project?
 
 Managing expenses is an essential real-life problem.
@@ -44,4 +42,3 @@ This project helps users:
 - ☁️ Add backend & database
 - 📁 Export data (PDF/Excel)
 
----

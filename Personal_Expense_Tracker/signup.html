@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Expense Tracker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="auth-page">
+    <div class="background-globes">
+        <div class="globe globe-1"></div>
+        <div class="globe globe-2"></div>
+    </div>
+
+    <div class="container auth-container">
+        <header class="auth-header">
+            <h1>Create Account</h1>
+            <p>Start your journey to financial freedom</p>
+        </header>
+
+        <div class="card auth-card">
+            <form id="signup-form">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <div class="input-icon">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="username" placeholder="Choose a username" required minlength="3">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <div class="input-icon">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="email" placeholder="Enter your email" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <div class="input-icon">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="password" placeholder="Create a password" required minlength="6">
+                    </div>
+                </div>
+
+                <div id="auth-error" class="error-message hidden"></div>
+
+                <button type="submit" class="btn-primary auth-btn">
+                    Sign Up <i class="fas fa-user-plus"></i>
+                </button>
+            </form>
+
+            <div class="auth-footer">
+                <p>Already have an account? <a href="login.html">Login</a></p>
+                <p><a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Home</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+    <script>
+        document.getElementById('signup-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            const result = auth.signup(username, email, password);
+            if (result.success) {
+                window.location.href = 'dashboard.html';
+            } else {
+                const errorDiv = document.getElementById('auth-error');
+                errorDiv.textContent = result.message;
+                errorDiv.classList.remove('hidden');
+            }
+        });
+    </script>
+</body>
+
+</html>

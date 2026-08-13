@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Transaction - Expense Tracker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="background-globes">
+        <div class="globe globe-1"></div>
+        <div class="globe globe-2"></div>
+    </div>
+
+    <nav class="navbar">
+        <div class="nav-brand">
+            <i class="fas fa-wallet"></i> ExpenseTracker
+        </div>
+        <div class="nav-links">
+            <a href="dashboard.html"><i class="fas fa-home"></i> <span class="nav-text">Dashboard</span></a>
+            <a href="add.html" class="active"><i class="fas fa-plus-circle"></i> <span class="nav-text">Add</span></a>
+            <a href="transactions.html"><i class="fas fa-list"></i> <span class="nav-text">Transactions</span></a>
+        </div>
+        <div class="nav-user">
+            <button id="theme-toggle" class="theme-toggle-btn" title="Toggle Theme">
+                <i class="fas fa-moon"></i>
+            </button>
+            <span id="user-display">User</span>
+            <a href="#" id="logout-btn"><i class="fas fa-sign-out-alt"></i></a>
+        </div>
+    </nav>
+
+    <div class="container small-container">
+        <div class="card add-card">
+            <h2 id="page-title">Add New Transaction</h2>
+
+            <div class="type-toggle">
+                <button type="button" class="toggle-btn active" data-type="expense" id="btn-expense">Expense</button>
+                <button type="button" class="toggle-btn" data-type="income" id="btn-income">Income</button>
+            </div>
+
+            <form id="transaction-form">
+                <input type="hidden" id="type" value="expense">
+                <input type="hidden" id="edit-id" value=""> <!-- For Edit Mode -->
+
+                <div class="form-group">
+                    <label for="amount">Amount</label>
+                    <div class="input-icon">
+                        <i class="fas fa-rupee-sign"></i>
+                        <input type="number" id="amount" placeholder="0.00" step="0.01" min="0" required autofocus>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <input type="text" id="description" placeholder="What was this for?" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="category">Category</label>
+                    <select id="category" required>
+                        <!-- Options populated by JS based on type -->
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="date">Date</label>
+                    <input type="date" id="date" required>
+                </div>
+
+                <button type="submit" class="btn-primary" id="save-btn">
+                    Save Transaction
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

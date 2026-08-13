@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transactions - Expense Tracker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="background-globes">
+        <div class="globe globe-1"></div>
+        <div class="globe globe-2"></div>
+    </div>
+
+    <nav class="navbar">
+        <div class="nav-brand">
+            <i class="fas fa-wallet"></i> ExpenseTracker
+        </div>
+        <div class="nav-links">
+            <a href="dashboard.html"><i class="fas fa-home"></i> <span class="nav-text">Dashboard</span></a>
+            <a href="add.html"><i class="fas fa-plus-circle"></i> <span class="nav-text">Add</span></a>
+            <a href="transactions.html" class="active"><i class="fas fa-list"></i> <span
+                    class="nav-text">Transactions</span></a>
+        </div>
+        <div class="nav-user">
+            <button id="theme-toggle" class="theme-toggle-btn" title="Toggle Theme">
+                <i class="fas fa-moon"></i>
+            </button>
+            <span id="user-display">User</span>
+            <a href="#" id="logout-btn"><i class="fas fa-sign-out-alt"></i></a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="card list-section-full">
+            <div class="section-header">
+                <h2>Transaction History</h2>
+                <div class="filter-controls">
+                    <div class="search-container">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="search-input" placeholder="Search transactions...">
+                    </div>
+                    <select id="filter-type">
+                        <option value="all">All Types</option>
+                        <option value="income">Income</option>
+                        <option value="expense">Expense</option>
+                    </select>
+                    <select id="filter-period">
+                        <option value="all">All Time</option>
+                        <option value="month">This Month</option>
+                        <option value="week">This Week</option>
+                    </select>
+                </div>
+            </div>
+
+            <ul id="expense-list" class="expense-list">
+                <!-- Dynamically loaded -->
+            </ul>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

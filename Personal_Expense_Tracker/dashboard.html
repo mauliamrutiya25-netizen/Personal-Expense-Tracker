@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Expense Tracker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+</head>
+
+<body>
+    <div class="background-globes">
+        <div class="globe globe-1"></div>
+        <div class="globe globe-2"></div>
+    </div>
+
+    <nav class="navbar">
+        <div class="nav-brand">
+            <i class="fas fa-wallet"></i> ExpenseTracker  <!--font awesome solid -->
+        </div>
+        <div class="nav-links">
+            <a href="dashboard.html" class="active"><i class="fas fa-home"></i> <span class="nav-text">Dashboard</span></a>
+            <a href="add.html"><i class="fas fa-plus-circle"></i> <span class="nav-text">Add</span></a>
+            <a href="transactions.html"><i class="fas fa-list"></i> <span class="nav-text">Transactions</span></a>
+        </div>
+        <div class="nav-user">
+            <button id="theme-toggle" class="theme-toggle-btn" title="Toggle Theme">
+                <i class="fas fa-moon"></i>
+            </button>
+            <span id="user-display">User</span>
+            <a href="#" id="logout-btn"><i class="fas fa-sign-out-alt"></i></a>
+        </div>
+    </nav>
+
+    <div class="container dashboard-container">
+
+        <!-- Stats Summary -->
+        <section class="stats-grid">
+            <div class="stat-card balance-card">
+                <h3>Total Balance</h3>
+                <p class="stat-amount" id="total-balance">₹0.00</p>
+            </div>
+            <div class="stat-card income-card">
+                <h3>Total Income</h3>
+                <p class="stat-amount" id="total-income">₹0.00</p>
+            </div>
+            <div class="stat-card expense-card">
+                <h3>Total Expense</h3>
+                <p class="stat-amount" id="total-expense">₹0.00</p>
+            </div>
+        </section>
+
+        <!-- Main Content Grid -->
+        <div class="dashboard-grid">
+            <!-- Chart Section -->
+            <section class="chart-section card">
+                <h3>Financial Overview</h3>
+                <div class="chart-container">
+                    <canvas id="expense-chart"></canvas>  <!--document.getElementById("expense-chart") in script.js and in style.css-->
+                    <div id="chart-legend" class="chart-legend"></div>
+                </div>
+            </section>
+
+            <!-- Budget Section -->
+            <section class="budget-section card">
+                <div class="card-header">
+                    <h3>Monthly Budget</h3>
+                    <button id="edit-budget-btn" class="btn-icon"><i class="fas fa-edit"></i></button>  <!--script.js-->
+                </div>
+                <div id="budget-display-area">
+                    <div class="budget-info">
+                        <p>Limit: <span id="budget-amount">₹0.00</span></p>
+                        <p>Remaining: <span id="budget-left">₹0.00</span></p>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-bar" id="budget-progress"></div>
+                    </div>
+                    <p class="budget-status" id="budget-status">Start by setting a budget</p>
+                </div>
+                <form id="budget-form" class="hidden">
+                    <div class="form-row">
+                        <input type="number" id="budget-input" placeholder="Budget Amount" min="0">
+                        <button type="submit" class="btn-sm btn-primary">Set</button>
+                    </div>
+                </form>
+            </section>
+        </div>
+
+        <!-- Advanced Analytics Grid -->
+        <div class="analytics-grid">
+            
+            <!-- Trend Graph -->
+            <section class="card trend-card">
+                <h3>Income vs Expense Trend (Last 6 Months)</h3>
+                <div class="trend-container">
+                    <canvas id="trend-chart"></canvas>
+                </div>
+            </section>
+
+            <!-- Insights & Categories Col -->
+            <div class="analytics-sidebar">
+                <!-- Insights -->
+                <section class="card insights-card">
+                    <h3>Expense Insights</h3>
+                    <div class="insight-item">
+                        <div class="insight-icon"><i class="fas fa-trophy"></i></div>
+                        <div class="insight-data">
+                            <h4>Highest Category</h4>
+                            <p id="insight-highest">N/A</p>
+                        </div>
+                    </div>
+                    <div class="insight-item">
+                        <div class="insight-icon"><i class="fas fa-calculator"></i></div>
+                        <div class="insight-data">
+                            <h4>Avg Daily Expense</h4>
+                            <p id="insight-avg">₹0.00</p>
+                        </div>
+                    </div>
+                    <div class="insight-item">
+                        <div class="insight-icon"><i class="fas fa-list-ol"></i></div>
+                        <div class="insight-data">
+                            <h4>Total Transactions</h4>
+                            <p id="insight-count">0</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Category Totals -->
+                <section class="card category-totals-card">
+                    <h3>Category-wise Totals</h3>
+                    <ul id="category-totals-list" class="category-list">
+                        <!-- Loaded by JS -->
+                    </ul>
+                </section>
+            </div>
+        </div>
+
+        <!-- Recent Transactions -->
+        <section class="recent-transactions card">
+            <div class="section-header">
+                <h3>Recent Transactions</h3>
+                <a href="transactions.html" class="view-all">View All</a>
+            </div>
+            <ul id="recent-list" class="expense-list">
+                <!-- Dynamically loaded -->
+            </ul>
+        </section>
+    </div>
+
+    <script src="auth.js"></script>
+    <script src="script.js"></script>
+
+<footer class="footer justify-content-center align-items-center">
+    <p>© 2026 Expense Tracker. All rights reserved.</p>
+    <p>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms</a>
+    </p>
+</footer>
+</body>
+
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Expense Tracker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+
+        .landing-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .landing-title {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        
+            
+            color: transparent;
+        }
+
+        .landing-btn {
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            margin-top: 2rem;
+        }
+       .wallet-icon {
+            font-size: 5rem;
+            color: #38bdf8;
+            margin-bottom: 1rem;
+            position: relative;
+            animation: moveRight 2s linear infinite alternate;
+}
+
+@keyframes moveRight {
+    from { left: 0; }
+    to { left: 40px; }
+}
+
+    </style>
+</head>
+
+<body>
+
+    <div class="background-globes">
+        <div class="globe globe-1"></div>
+        <div class="globe globe-2"></div>
+    </div>
+
+    <div class="landing-container">
+        <i class="fas fa-wallet wallet-icon" style="font-size: 5rem; color: #38bdf8; margin-bottom: 1rem;"></i>
+        <h1 class="landing-title" style="color: skyblue;">Expense Tracker Pro</h1>
+        <p>Master your finances with ease.</p>
+        <div style="margin-top: 2rem;">
+            <a href="login.html" class="btn-primary landing-btn"
+                style="text-decoration: none; margin-right: 1rem;">Login</a>  <!-- landing-button use for space-->
+            <a href="signup.html" class="btn-primary landing-btn"
+                style="text-decoration: none; background: rgba(255,255,255,0.1);">Sign Up</a>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+    <script>
+        // If user is already logged in, auth.js will redirect to dashboard
+        // If not, they see this landing page
+    </script>
+</body>
+
+</html>
+

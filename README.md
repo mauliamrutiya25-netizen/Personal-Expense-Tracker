@@ -41,4 +41,13 @@ This project helps users:
 - 📱 Make it mobile responsive
 - ☁️ Add backend & database
 - 📁 Export data (PDF/Excel)
+  
+---
 
+## ⭐ Support
+-If you like this project, give it a ⭐ on GitHub!
+
+---
+
+## 👨‍💻 Author
+-Mauli Amrutiya

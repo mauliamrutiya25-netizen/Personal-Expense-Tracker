@@ -45,9 +45,9 @@ This project helps users:
 ---
 
 ## ⭐ Support
--If you like this project, give it a ⭐ on GitHub!
+If you like this project, give it a ⭐ on GitHub!
 
 ---
 
 ## 👨‍💻 Author
--Mauli Amrutiya
+Mauli Amrutiya
